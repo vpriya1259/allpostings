@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.indusborn.domain.Posting" table="ib_posting"
+		discriminator-value="Posting">
+		<id name="id" column="posting_id" type="long" unsaved-value="0">
+			<generator class="native" />
+		</id>
+
+		<discriminator column="posting_catgry" type="string" />
+		<property name="created" column="posting_created" type="long" />
+		<property name="updated" column="posting_updated" type="long" />
+		<property name="type" column="posting_type" />
+		<property name="title" column="posting_title" />
+		<property name="desc" column="posting_desc" />
+		<property name="price" column="posting_price" />
+		<property name="currency" column="posting_currency" />
+		<property name="email" column="posting_email" />
+		<property name="address" column="posting_address" />
+		<property name="subCatgry" column="posting_subcatgry" />		
+		<property name="lat" column="posting_lat" type="double" />
+		<property name="lng" column="posting_lng" type="double" />
+		<property name="src" column="posting_src"/>
+		<property name="content" column="posting_content"/>
+
+		<many-to-one name="owner" class="com.indusborn.domain.User"
+			column="posting_owner_id" cascade="none" fetch="join" />
+
+		<set name="images" inverse="true" cascade="all-delete-orphan"
+			fetch="join">
+			<key column="posting_image_posting_id" />
+			<one-to-many class="com.indusborn.domain.PostingImage" />
+		</set>
+
+		<subclass name="com.indusborn.domain.Rental" discriminator-value="Rental">
+		</subclass>
+		<subclass name="com.indusborn.domain.Roommate" discriminator-value="Roommate">
+		</subclass>
+		<subclass name="com.indusborn.domain.Car" discriminator-value="Car">
+		</subclass>
+		<subclass name="com.indusborn.domain.Buysell" discriminator-value="Buysell">
+		</subclass>
+		<subclass name="com.indusborn.domain.Job" discriminator-value="Job">
+		</subclass>
+	</class>
+</hibernate-mapping>

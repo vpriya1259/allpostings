@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.indusborn.domain.User" table="ib_user">
+		<id name="id" column="user_id" type="integer" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="created" column="user_created" type="long" />
+		<property name="updated" column="user_updated" type="long" />
+		<property name="password" column="user_password" />
+		<property name="enabled" column="user_enabled" type="boolean" />
+		<property name="fname" column="user_fname" />
+		<property name="lname" column="user_lname" />
+		<property name="email" column="user_email" />
+		<property name="address" column="user_address" />
+		<property name="zip" column="user_zip" />
+		<property name="phone" column="user_phone" />
+	</class>
+</hibernate-mapping>

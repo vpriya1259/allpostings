@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+   <class name="com.indusborn.domain.PostingImage" table="ib_posting_image">
+      <id name="id" column="posting_image_id" type="long" unsaved-value="0">
+         <generator class="native" />
+      </id>
+      <many-to-one 
+      	name="posting" 
+      	class="com.indusborn.domain.Posting"
+      	column="posting_image_posting_id"
+      	cascade="none"/>
+   </class>
+</hibernate-mapping>

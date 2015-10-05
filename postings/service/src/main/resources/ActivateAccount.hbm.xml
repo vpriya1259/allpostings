@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.indusborn.domain.ActivateAccount" table="ib_activate_account">
+		<id name="token" column="aa_token" type="string">
+			<generator class="assigned" />
+		</id>
+		<property name="created" column="aa_created" type="long" />
+		<many-to-one name="owner" class="com.indusborn.domain.User"
+			column="aa_owner_id" cascade="none" fetch="join" />
+	</class>
+</hibernate-mapping>

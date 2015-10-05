@@ -1,0 +1,415 @@
+@import url("../messages/messages.css");
+@import url("form.css");
+
+a img, frameset, fieldset { 
+	border: 0;
+}
+
+/*h4 {
+	font-size: 0.85em;
+	font-weight: bold;
+	color: #1f2a40;
+}*/
+
+body {
+	font-family: "lucida grande", lucida, tahoma, helvetica, arial, sans-serif !important;
+	background: repeat-x scroll 0 0 #FFFFFF;
+	font-size: 0.8em;
+}
+
+#header {
+	background: repeat-x scroll 0 0 #1f2a40;	
+	height: 40px;
+	border: 1px solid #ccc;
+	margin-bottom: 5px;
+}
+
+
+.headerHorzItem {
+	height:45px;
+  	width:auto;
+  	float:left;	
+}
+
+a {
+	color: #1f2a40;
+}
+
+#logo {
+	width: 80px;
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#logoLink {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#signinNav, #homeNav {
+	width: 180px;
+}
+
+#signinNav li, #homeNav li {
+	float: right;
+	list-style-type: none;
+	margin-right: 10px;
+}
+
+#signinNav li a, #homeNav li a {
+	color: #ffffff;
+	display: inline;
+	width: 50px;
+	font-size: 0.85em;
+	border-radius: 0.2em;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+}
+
+
+
+#content {
+	clear: both;
+	width: 350px;
+}
+
+#postSearchPanel {
+	background-color: #FFFFFF;
+	margin:10px 0px 2px 0px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+}
+
+
+#postSearchPanelSearchRadius {
+  	width:200px;
+  	margin:2px 0 2px 0;
+}
+
+.postSearchPanelSearchRadius1 {
+  margin: 0px 2px 2px 2px;
+  height:auto;
+  width:auto;
+  float:left;
+  text-align:left;
+}
+
+#postSearchPanelSearchMiles {
+	margin: 1px 0 0 0;
+	font-weight: bold;
+	padding: 4px 0 2px 0;
+}
+
+
+
+#postListPanel {
+	background-color: #FFFFFF;
+	padding-top: 5px;
+	margin-top: 10px;
+	padding-left: 5px;
+	color: #1f2a40;
+}
+
+#postListPanel a {
+	color: #1f2a40;
+	text-decoration: none;
+}
+
+#postListPostPanel {
+	border-bottom: 1px solid #ccc;
+	height: 70px;
+	margin-bottom: 5px;
+}
+
+.postListPostPanelHorzItem {
+  	margin:2px;
+  	height:60px;
+  	width:auto;
+  	float:left;
+  	text-align:left;
+}
+
+#postListPostPanelImage {
+	height: 50px;
+	width: 50px;
+}
+
+#postListPostPanelTitle {
+	width: 270px;
+	height: 40px;
+	font-weight: bold;
+	/*border:1px solid #ccc;*/
+}
+
+#postListPostPanelUpdated {
+}
+
+#postPanel {
+	background-color: #FFFFFF;
+	color: #1f2a40;
+	margin-left: 5px;
+	font-size: 8px;
+}
+
+#postPanelTitle {
+	font-weight: bold;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+#postPanelDetails {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+}
+
+.postPanelDetailsLbl {
+	font-weight: bold;
+}
+
+.postPanelDetailsVal {
+}
+
+postPanelDesc {
+	padding-bottom: 5px;
+	margin-bottom: 10px;	
+	border-bottom: 1px solid #ccc;
+}
+
+#postPanelImage {
+	height: 270px;
+	width: 270px;
+}
+
+
+#postListPagination {
+	width: 300px;
+	font-weight: bold;
+	font-size: 0.85em;	
+}
+
+.postListPaginationLink {
+	display: inline;
+	margin: 0 2px 0 0;
+}
+
+#postListPagination a {
+	color: #1f2a40;
+}
+
+#usrActionNav li, #settNav li {
+	float: left;
+	list-style-type: none;
+	margin-left: 1px;
+}
+
+#usrActionNav li a, #settNav li a {
+	color: #ffffff;
+	background-color: #1f2a40;
+	display: block;
+	width: 90px;
+	font-weight: bold;
+	border-radius: 0.2em;
+	padding: 1px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#settNav li a {
+	width: 130px;
+}
+
+#usrActionNav li a:hover, #settNav li a:hover  {
+	color: #ffffff;
+	background-color: #596274;
+}
+
+
+
+#newPost {
+	background-color: #ffffff;	
+	width: 350px;
+	margin:0 auto;
+}
+
+.newPostPriceItem {
+  	margin:2px;
+  	height:30px;
+  	width:auto;
+  	float:left;
+  	text-align:left;
+}
+
+#newPostPriceCurr {
+	width: 60px;
+}
+
+#newPostPriceInput {
+	width: 150px;
+}
+
+.clear {
+	clear: both;
+}
+
+.newPostEmailItem {
+  	margin:2px;
+  	height:30px;
+  	width:auto;
+  	float:left;
+  	text-align:left;
+}
+
+#newPostEmail {
+	width: 300px;
+}
+
+#newPostAnonym {
+	width: 15px;
+}
+
+#newPostAnonymTxt {
+	width: 150px;
+}
+
+
+#postListPanelMine {
+	border:1px solid #ccc;
+	border-width: 0 1px 1px 1px 1px;
+	background-color: #FFFFFF;	 	
+	width: 350px;
+	margin-top: 10px;
+	padding-left: 3px;
+	color: #1f2a40;
+}
+
+#postListPostPanelMine {
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc; 	
+	height: 35px;
+	width: 330px;
+	margin-bottom: 10px;
+}
+
+.postListPostPanelMineItem {
+  	margin:2px;
+  	height:35px;
+  	width:auto;
+  	float:left;
+  	text-align:left;
+  	vertical-align: middle;
+}
+
+#postListPostPanelMine a {
+	color: #1f2a40;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+#postListPostPanelMine a:hover {
+/*	background-color: #1f2a40;
+	color: #ffffff;*/
+}
+
+#postListPostPanelMineTitle {
+	width: 250px;
+	padding: 2px 0 0 2px;
+}
+
+#postListPostPanelMineDelete, #postListPostPanelMineUpdate {
+	width: 25px;
+	height: 20px;
+}
+
+#sendMail, #sett {
+	margin-top: 10px;
+	background-color: #FFFFFF;
+	width: 350px;
+}
+
+#sendMailLink {
+	margin-top: 8px;
+	margin-bottom: 2px;
+}
+
+#sendMailLink a {
+	border: 1px solid #ccc;
+	background-color: #1f2a40;
+	cursor: pointer;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #ffffff;
+	text-decoration: none;
+		
+	/*color: #ffffff;
+	background-color: #1f2a40;
+	text-decoration: none;
+	text-align: center;
+	width: 120px;
+	padding: 2px;
+	font-weight: bold;
+	border-radius: 0.2em;*/
+}
+
+#sendMailLink a:hover{
+	background-color: #1f2a40;
+	border: 1px solid #C6D880;
+	color: #ffffff;
+}
+
+#sendMailLink a:active {
+	background-color: #1f2a40;
+	color: #ffffff;
+	border: 1px solid #000;
+}
+
+.sign {
+	background-color: #FFFFFF;
+	color: #1f2a40;
+	margin-top: 10px;
+	padding-top: 2px;
+	padding-bottom: 5px;
+	width: 350px;
+}
+
+/*#footer {
+	background: repeat-x scroll 0 0 #1f2a40;	
+	height: 20px;
+	border: 1px solid #ccc;
+	margin-bottom: 5px;
+}*/
+
+#footerNav {
+	height: 25px;
+	margin-right: auto;
+	margin-left: auto;
+	background: repeat-x scroll 0 0 #1f2a40;
+}
+
+#footerNav li {
+	padding-top: 5px;
+	float: left;
+	list-style-type: none;
+}
+
+#footerNav li a {
+	color: #ffffff;
+	display: block;
+	font-size: 0.85em;
+	font-weight: bold;
+	margin-right: 15px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#footerNav li a:hover {
+	text-decoration: underline;
+}

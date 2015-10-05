@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+   <class name="com.indusborn.domain.Feedback" table="ib_feedback">
+      <id name="id" column="feedback_id" type="long">
+         <generator class="native"/>
+      </id>
+      <property name="created" column="feedback_created" type="long"/>
+      <property name="ipaddr" column="feedback_ipaddr" type="text"/>	  
+      <property name="name" column="feedback_name"/>
+      <property name="email" column="feedback_email" type="text"/>
+	  <property name="mssg" column="feedback_mssg" type="text"/>      
+   </class>
+</hibernate-mapping>

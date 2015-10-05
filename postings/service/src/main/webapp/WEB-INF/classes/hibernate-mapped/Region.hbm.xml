@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+   <class name="com.indusborn.domain.Region" table="ib_region">
+      <id name="id" column="region_id" type="integer">
+         <generator class="increment"/>
+      </id>
+      <property name="countryName" column="region_country_name"/>
+      <property name="countryCode" column="region_country_code"/>
+      <property name="adminAreaName" column="region_admin_area_name"/>
+      <property name="subAdminAreaName" column="region_sub_admin_area_name"/>
+      <property name="localityName" column="region_locality_name"/>
+   </class>
+</hibernate-mapping>

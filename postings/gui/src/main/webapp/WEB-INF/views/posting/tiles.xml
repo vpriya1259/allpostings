@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+   <definition name="posting.page" templateExpression="/WEB-INF/views/common/postingpage.jsp">
+		<put-attribute name="navbar" expression="/WEB-INF/views/common/postingnavbar.jsp" />
+	</definition>
+	
+	<definition name="posting.all.content" extends="posting.page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/postingall.jsp"/>
+	</definition>
+	
+	<definition name="posting.all" extends="page">
+		<put-attribute name="content" value="posting.all.content" />
+	</definition>
+	
+	<definition name="posting" extends="page">
+	   <put-attribute name="title" expression="${title}"/>
+		<put-attribute name="content" value="/WEB-INF/views/posting/posting.jsp" />
+	</definition>
+	
+	<definition name="posting.usr.new.content" extends="posting.page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/postingusrnew.jsp"/>
+	</definition>
+	
+	<definition name="posting.usr.new" extends="page">
+		<put-attribute name="content" value="posting.usr.new.content" />
+	</definition>
+	
+	<definition name="posting.usr.upd.content" extends="posting.page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/postingusrupd.jsp"/>
+	</definition>
+	
+	<definition name="posting.usr.upd" extends="page">
+		<put-attribute name="content" value="posting.usr.upd.content" />
+	</definition>
+	
+	<definition name="posting.usr.del.content" extends="posting.page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/postingusrdel.jsp"/>
+	</definition>
+	
+	<definition name="posting.usr.del" extends="page">
+		<put-attribute name="content" value="posting.usr.del.content" />
+	</definition>
+	
+	<definition name="posting.usr.all.content" extends="posting.page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/postingusrall.jsp"/>
+	</definition>
+	
+	<definition name="posting.usr.all" extends="page">
+		<put-attribute name="content" value="posting.usr.all.content" />
+	</definition>
+	
+	<definition name="m.posting.search.content" extends="posting.page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/mpostingsearch.jsp" />
+	</definition>
+	
+	<definition name="m.posting.search" extends="page">
+		<put-attribute name="content" value="m.posting.search.content" />
+	</definition>
+	
+	<definition name="m.posting.all.content" extends="posting.page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/mpostingall.jsp" />
+	</definition>
+	
+	<definition name="m.posting.all" extends="page">
+		<put-attribute name="content" value="m.posting.all.content" />
+	</definition>
+	
+	<definition name="m.posting" extends="page">
+		<put-attribute name="title" expression="${title}"/>
+		<put-attribute name="content" value="/WEB-INF/views/posting/mposting.jsp" />
+	</definition>
+	
+	<definition name="posting.mail" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/posting/postingmail.jsp" />
+	</definition>
+	
+</tiles-definitions>

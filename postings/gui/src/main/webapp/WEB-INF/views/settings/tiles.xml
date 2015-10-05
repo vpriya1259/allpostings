@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+   <definition name="sett.page" templateExpression="/WEB-INF/views/settings/settpage.jsp">
+		<put-attribute name="navbar" expression="/WEB-INF/views/settings/settnavbar.jsp" />
+	</definition>
+
+	<definition name="sett.upd.details.content" extends="sett.page">
+		<put-attribute name="content" value="/WEB-INF/views/settings/settupddetails.jsp"/>
+	</definition>
+
+	<definition name="sett.upd.details" extends="page">
+		<put-attribute name="content" value="sett.upd.details.content" />
+	</definition>
+
+	<definition name="sett.upd.passwd.content" extends="sett.page">
+		<put-attribute name="content" value="/WEB-INF/views/settings/settupdpasswd.jsp"/>
+	</definition>
+
+	<definition name="sett.upd.passwd" extends="page">
+		<put-attribute name="content" value="sett.upd.passwd.content" />
+	</definition>
+	
+
+	<definition name="settings" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/settings/settings.jsp" />
+	</definition>
+
+</tiles-definitions>

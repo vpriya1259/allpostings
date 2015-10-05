@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="error.404" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/error/404.jsp" />
+	</definition>
+	
+	<definition name="error.500" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/error/500.jsp" />
+	</definition>
+	
+	<definition name="error.maxuploadsize" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/error/maxuploadsize.jsp" />
+	</definition>
+</tiles-definitions>

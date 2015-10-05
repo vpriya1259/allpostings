@@ -1,0 +1,237 @@
+form {
+	font-size: 0.9em;
+	width: 320px;
+	color: #1f2a40;
+	text-align: left;
+	margin: 0 auto;
+}
+
+form fieldset {
+	padding: 1em 0 0 0.5em;
+	margin: 0 0 0.5em 0;
+	border:0.1em solid #ddd;
+}
+
+/* Elements */
+form legend {
+	font-weight: bold;
+}
+
+.sign form {
+	width: 90%;
+	color: #1f2a40;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.sign form fieldset {
+	border: 0 solid #ddd;
+}
+
+.sign form .formInfo {
+	margin-bottom: 1em;
+	padding-bottom: 0.5em;
+	border-bottom: 0.1em solid #ddd;
+}
+
+.sign form .formInfo h2 {
+	color: #1f2a40;
+	font-weight: bold;
+	font-size: 1em;
+	margin-bottom: 0.25em;
+}
+
+.sign form input {
+	width: 90%;
+	line-height: 1.5em;
+}
+
+#sendMail form .formInfo h2, #sett form .formInfo h2 {
+	color: #1f2a40;
+	font-weight: bold;
+	font-size: 1em;
+	margin-top: 1em;
+}
+
+#sendMail form label, #sett form label {
+	font-weight: normal;
+}
+
+#sendMail form button, #sett form button {
+	font-weight: bold;
+	color: #1f2a40;
+}
+
+#sendMail form button:hover, #sett form button:hover {
+	background-color: #1f2a40;
+	border: 1px solid #C6D880;
+	color: #ffffff;
+}
+
+#sendMail form button:active, #sett form button:active {
+	background-color: #1f2a40;
+	color: #ffffff;
+	border: 1px solid #000;
+}
+
+#sett form input {
+	width: 40%;
+	line-height: 1.5em;
+}
+
+
+div .checkbox {
+	padding: 0.7em;
+	margin: 0 0 0.5em 0;
+}
+
+form label {
+	font-weight: bold;
+}
+
+form input {
+	line-height: 1.5em;
+	padding: 0.15em;
+}
+
+
+form textarea {
+	border:1px solid #ccc;
+	border-width: 0 1px 1px 1px 1px;
+	width: 95%;
+	height: 200px;
+}
+
+
+form input, form textarea, form select {
+	display: block;
+	margin-bottom: 1em;
+	border: 1px solid #bbb;
+	padding: 0.15em;
+	margin: 0.25em 0 1em 0;
+}
+
+form .title  {
+	width: 95%;
+}
+
+form .email {
+	width: 50%;
+}
+
+form .address {
+	width: 80%;
+	
+}
+
+form .search {
+	width: 90%;
+}
+
+#radius {
+}
+
+
+form .radio input, form .checkbox input {
+	width: auto;
+	border: none;
+}
+
+form .radio label, form .radio input, form .checkbox label, form .checkbox input {
+	display: inline;
+	margin: 0.5em;
+}
+
+
+form .radio input, form .checkbox input {
+	margin: 0.5em 0 1em 0;
+}
+
+form input[type='submit'], form input[type='image'] {
+	width: auto;
+}
+
+form .multiple label {
+	float: left;
+	width: 29%;
+	overflow: hidden;
+	padding-left: 1px;
+}
+
+form .multiple input {
+	cursor: pointer;
+}
+
+form .multiple select {
+	display: inline;
+	margin: 1em 1.5em 0 0
+}
+
+/* Button */
+form button {
+	margin: 0.3em 0;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 0.95em;
+	padding: 0.5em;
+	color: #1f2a40;
+}
+
+form button:hover {
+	background-color: #1f2a40;
+	border: 1px solid #C6D880;
+	color: #ffffff;
+}
+
+form button:active {
+	background-color: #1f2a40;
+	color: #ffffff;
+	border: 1px solid #000;
+}
+
+
+/* information */
+form .formInfo {
+	margin-top: 1em;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+}
+
+form h2 {
+	color: #1f2a40;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+form .formInfo h4 {
+	color: #1f2a40;
+	font-weight: bold;
+	margin-bottom: 1em
+}
+
+
+form .formInfo p {
+	text-align: justify
+}
+
+form .required {
+	color: #ff3838;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+.postSearchPanel form label, #postSearchPanelSearchMiles {
+	font-weight: bold;
+}
+
+#forgotPasswd {
+	margin-top: 5px;
+}
+
+#sett form input {
+	width: 70%;
+	line-height: 1.5em;
+}
+

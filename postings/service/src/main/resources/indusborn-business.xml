@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:aop="http://www.springframework.org/schema/aop"
+         xmlns:tx="http://www.springframework.org/schema/tx"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:indusborn.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="eventListeners">
+            <map>
+                <entry key="post-update"><bean class="org.hibernate.search.event.FullTextIndexEventListener"/></entry>
+                <entry key="post-insert"><bean class="org.hibernate.search.event.FullTextIndexEventListener"/></entry>
+                <entry key="post-delete"><bean class="org.hibernate.search.event.FullTextIndexEventListener"/></entry>
+            </map>
+        </property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${jdbc.dialect}</prop>
+				<prop key="hibernate.show_sql">${jdbc.show_sql}</prop>
+				<prop key="hibernate.format_sql">${jdbc.format_sql}</prop>
+				<prop key="hibernate.jdbc.batch_size">${jdbc.batch_size}</prop>
+				<prop key="hibernate.search.default.directory_provider">${hibernate.search.directory_provider}</prop>
+				<prop key="hibernate.search.default.indexBase">${hibernate.search.index.base}</prop>
+				<prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+				<prop key="hibernate.c3p0.idle_test_period">100</prop>
+				<prop key="hibernate.c3p0.max_size">100</prop>
+				<prop key="hibernate.c3p0.max_statements">50</prop>
+				<prop key="hibernate.c3p0.min_size">10</prop>
+				<prop key="hibernate.c3p0.timeout">1800</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:ActivateAccount.hbm.xml</value>
+				<value>classpath:Feedback.hbm.xml</value>
+				<value>classpath:Posting.hbm.xml</value>
+				<value>classpath:PostingImage.hbm.xml</value>
+				<value>classpath:Region.hbm.xml</value>
+				<value>classpath:ResetPassword.hbm.xml</value>
+				<value>classpath:User.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+    <bean id="geoCoder" class="com.indusborn.geocode.GGcoder">
+		<property name="geoCodeURL" value="http://maps.google.com/maps/geo?output=json"/>
+		<property name="defaultKey" value="ABQIAAAATlT9GgA3U_WGsEa_pxJfXRSZsEW_S4tEMHlEKdlsGTgZQttCEBQCX0DT7wO6umNvZzhavTiPQciUIw"/>
+    </bean>
+
+	<bean id="postingDao" class="com.indusborn.repository.PostingDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="indexingDao" class="com.indusborn.repository.IndexingDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="reIndexAlways" value="${posting.alwaysReindex}"/>
+		<property name="indexDirectory" value="${hibernate.search.index.base}"/>
+	</bean>
+
+	<bean id="userDao" class="com.indusborn.repository.UserDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="passwordEncoder" ref="standardPasswordEncoder" />
+	</bean>
+	
+    <bean id="mailDao" class="com.indusborn.repository.GoogleMailDaoImpl" init-method="init">
+		<property name="fromName" value="${mail.fromName}"/>
+		<property name="fromAddress" value="${mail.fromAddress}"/>
+		<property name="appSecUrl" value="${application.secureUrl}"/>
+		<property name="siteName" value="${mail.siteName}"/>
+		<property name="url" value="${mail.url}"/>
+		<property name="fuzzyCreateUrl" value="${mail.fuzzy.create.url}"/>
+		<property name="fuzzyPurgeUrl" value="${mail.fuzzy.purge.url}"/>
+		<property name="fuzzyCreator" value="${mail.fuzzy.creator}"/>
+		<property name="fuzzyChallenge" value="${mail.fuzzy.challenge}"/>
+    </bean>
+	
+    <bean id="simpleGeo" class="com.indusborn.geocode.MySQLGeoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="localFileStorage" class="org.springframework.data.LocalFileStorage">
+    	<constructor-arg index="0" value="${application.url}"/>
+    	<constructor-arg index="1" value="${posting.images.base}"/>
+    </bean>
+    
+    <bean id="postingImageService" class="com.indusborn.service.FileStoragePostingImageService">
+    	<property name="storage" ref="localFileStorage"/>
+    </bean>
+	
+	<bean id="postingService" class="com.indusborn.service.PostingService">
+		<property name="postingDao" ref="postingDao" />
+		<property name="userDao" ref="userDao" />
+        <property name="mailDao" ref="mailDao"/>
+		<property name="simpleGeo" ref="simpleGeo"/>
+        <property name="geoCoder" ref="geoCoder"/>
+        <property name="postingImageService" ref="postingImageService"/>
+	</bean>
+
+	<bean id="standardPasswordEncoder" class="org.springframework.security.encrypt.StandardPasswordEncoder">
+		<constructor-arg value="${password.encoder.key}" />
+	</bean>
+	
+	<bean id="authService" class="com.indusborn.service.AuthService">
+		<property name="userDao" ref="userDao"/>
+		<property name="mailDao" ref="mailDao"/>
+	</bean>
+	
+</beans>
